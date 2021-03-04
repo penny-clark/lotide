@@ -8,7 +8,6 @@ const assertEqual = function(actual, expected) {
 
 const countLetters = function (string) {
   let results = {};
-  //borrowed this code from the last exercise
   for (const item of string) {
     if (item !== " ") {
       if (results[item]) {
