@@ -8,6 +8,9 @@ const assertEqual = function(actual, expected) {
 
 const eqArrays = function(array1, array2) {
   let arrayMatch = true;
+  if (array1.length !== array2.length) {
+    arrayMatch = false;
+  }
   for (let i = 0; i < array1.length; i++) {
     if (array1[i] !== array2[i]) {
       arrayMatch = false;
@@ -21,3 +24,5 @@ assertEqual(eqArrays([true, "hi"], [true, "hi"]), true); // => true
 assertEqual(eqArrays([1, 2, 3], [3, 2, 1]), false); // => false
 assertEqual(eqArrays(["1", "2", "3"], ["1", "2", "3"]), true); // => true
 assertEqual(eqArrays(["1", "2", "3"], ["1", "2", 3]), false); // => false
+assertEqual(eqArrays([], []), true);
+assertEqual(eqArrays([0, 1], [0, 1, 2]), false);
