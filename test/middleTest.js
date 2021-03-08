@@ -1,11 +1,15 @@
-const assertArraysEqual = require('../assertArraysEqual')
-const middle = require('../middle')
+const assert = require('chai').assert;
+const middle   = require('../middle');
 
-// testing cases
-const arrayT1 = ["fish", "cat", "dog"]
-const arrayT2 = [1, 2, 3, 4]
-const arrayT3 = [1]
-
-assertArraysEqual(middle(arrayT1), arrayT1) // ["cat"] arrertArrayEqual = fail
-assertArraysEqual(middle(arrayT2), arrayT2) // [2, 3] arrertArrayEqual = fail
-assertArraysEqual(middle(arrayT3), arrayT3) // [] assertArrayEqual = fail
+describe("#middle", () => {
+  it("returns 'cat' for ['fish', 'cat', 'dog]", () => {
+    assert.deepEqual(middle(['fish', 'cat', 'dog']), ['cat']);
+  });
+  it("returns [] if argument array has two or fewer items", () => {
+    assert.deepEqual(middle(['cat', 'dog']), []);
+  });
+  it("does not change the original array", () => {
+    const testing = [5, 6, 7]
+    assert.notEqual(middle(testing), testing); 
+  });
+});
