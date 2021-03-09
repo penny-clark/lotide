@@ -18,5 +18,3 @@ describe("#eqArrays", () => {
     assert.strictEqual(eqArrays([0, 1], [0, 1, 2]), false);
   });
 });
-
-
